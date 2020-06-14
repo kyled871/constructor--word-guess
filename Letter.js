@@ -12,9 +12,14 @@ function Letter(letter) {
     }
 
     this.checker = function(input) {
-        if (input === letter) {
-            this.guessed === true
+        if (input === this.letter) {
+            this.guessed = true
+            console.log('these are the same letter')
+        } else {
+            console.log('these are NOT the same letter')
         }
     }
-
 }
+
+let newLetter = new Letter('q')
+newLetter.checker('w')
