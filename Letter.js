@@ -14,6 +14,7 @@ function Letter(letter) {
     this.checker = function(input) {
         if (input === this.letter) {
             this.guessed = true
+            // delete console logs later!!
             console.log('these are the same letter')
         } else {
             console.log('these are NOT the same letter')
@@ -21,5 +22,11 @@ function Letter(letter) {
     }
 }
 
-let newLetter = new Letter('q')
-newLetter.checker('w')
+
+// testing if letter is = to input
+// let newLetter = new Letter('q')
+// newLetter.checker('w')
+
+
+
+module.exports = Letter
