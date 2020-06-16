@@ -5,10 +5,18 @@ function Word(currentWord) {
     this.wordArr = []
     this.currentWord = currentWord
 
+    this.newLetter = currentWord.split("").map( function(val) {
+        return new Letter(val)
+        console.log(val)
+    })
+
     this.show = function() {
 
-        
-        console.log(this.currentWord.replace(/[a-z]/gi, " _ "))
+        for (let i = 0; i < this.newLetter.length; i++) {
+            this.wordArr.push(this.newLetter[i].hasGuessed())
+        }
+
+        console.log(this.wordArr.join("   "))
 
     }
 }

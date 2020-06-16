@@ -14,11 +14,8 @@ function Letter(letter) {
     this.checker = function(input) {
         if (input === this.letter) {
             this.guessed = true
-            // delete console logs later!!
-            console.log('these are the same letter')
-        } else {
-            console.log('these are NOT the same letter')
-        }
+
+        } 
     }
 }
 
