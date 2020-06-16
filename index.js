@@ -1,4 +1,8 @@
 let Word = require("./Word")
+let inquirer = require('inquirer');
+
+let guessesLeft = 10
+
 
 let wordBank = [
     'aardvark',
@@ -9,11 +13,37 @@ let wordBank = [
     'chinchilla',
 ]
 
-function randomPick() {
-    let randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
-    console.log(randomWord)
+function gameStart() {
 
-    
+    let randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
+    let current = new Word(randomWord)
+
+    question()
+
 }
 
-randomPick()
+
+function question() {
+
+    if (guessesLeft != 0) {
+
+        inquirer.prompt([
+
+            {
+                type: 'input',
+                name: 'userInput',
+                message: 'Please select a letter: '
+            }
+
+        ])
+
+
+
+    }
+
+
+}
+
+
+
+gameStart()

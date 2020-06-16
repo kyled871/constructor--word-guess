@@ -7,7 +7,6 @@ function Word(currentWord) {
 
     this.newLetter = currentWord.split("").map( function(val) {
         return new Letter(val)
-        console.log(val)
     })
 
     this.show = function() {
