@@ -21,6 +21,4 @@ function Word(currentWord) {
     }
 }
 
-
-let hello = new Word('hello')
-hello.show()
+module.exports = Word
