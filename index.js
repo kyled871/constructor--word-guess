@@ -14,7 +14,10 @@ let wordBank = [
     'chinchilla',
 ]
 
+
+
 function gameStart() {
+    let letterCount = 0
     let randomWord = wordBank[Math.floor(Math.random() * wordBank.length)];
     let current = new Word(randomWord);
     let eachLetter = new Letter(current.newLetter)
@@ -37,19 +40,44 @@ function gameStart() {
                 }
     
             ]).then(function(answer) {
+
+
                 
                 let wrong = true
                 let guess = answer.userInput
-                let letterCount = 0
     
                 for (i = 0; i < eachLetter.letter.length; i++) {
                     if (guess === eachLetter.letter[i].letter) {
 
                         eachLetter.letter[i].guessed = true
                         wrong = false
-                        ++letterCount
-                    }      
-                } 
+                        ++letterCount;
+                    } 
+                    
+                }
+                
+                if (letterCount === eachLetter.letter.length) {
+
+                    inquirer.prompt([
+                        {
+                            type: 'confirm',
+                            name:'playAgain',
+                            message: 'Noice m8! Keep Going?\n',
+                            default: true
+            
+                        }
+                    ]).then( function(answer) {
+            
+                        if (answer.playAgain) {
+                            guessesLeft = 10
+                            gameStart()
+            
+                        }
+            
+                    })
+
+                }
+                
     
                 if (wrong) {
                     --guessesLeft
