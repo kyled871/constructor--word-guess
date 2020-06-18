@@ -29,7 +29,8 @@ function gameStart() {
     question()
 
     function question() {
-    
+
+        // prompt is repeated until guessedLeft = 0
         if (guessesLeft > 0) {
             inquirer.prompt([
     
@@ -42,13 +43,13 @@ function gameStart() {
             ]).then(function(answer) {
 
 
-                
                 let wrong = true
                 let guess = answer.userInput
     
                 for (i = 0; i < eachLetter.letter.length; i++) {
                     if (guess === eachLetter.letter[i].letter) {
 
+                        // each letter in the current word is checked against the usersInput. Matches set each letters value to true.
                         eachLetter.letter[i].guessed = true
                         wrong = false
                         ++letterCount;
@@ -56,6 +57,7 @@ function gameStart() {
                     
                 }
                 
+                // if all the letters show in the current array of letters then user wins.
                 if (letterCount === eachLetter.letter.length) {
 
                     inquirer.prompt([
@@ -79,6 +81,7 @@ function gameStart() {
                 }
                 
     
+                // if the users input doesnt return true guesses left decrements.
                 if (wrong) {
                     --guessesLeft
                     wrong = true
@@ -86,7 +89,7 @@ function gameStart() {
                     console.log(`Correct!\n`)
                 }
     
-                console.log(`Guesses Left: ${guessesLeft}`) 
+                console.log(`\nGuesses Left: ${guessesLeft}`) 
                 console.log(`\n`)   
                 current.show()
                 console.log(`\n`)

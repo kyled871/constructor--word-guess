@@ -20,10 +20,4 @@ function Letter(letter) {
 }
 
 
-// testing if letter is = to input
-// let newLetter = new Letter('q')
-// newLetter.checker('w')
-
-
-
 module.exports = Letter
