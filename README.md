@@ -9,7 +9,7 @@ This node application features the use of **inquirer** node package as well as *
 ## Examples:
 
 ### Winning:
-![winning](images\winning.gif)
+![winning](./images/winning.gif)
 
 ### Losing:
-![losing](images\losing.gif)
+![losing](./images/losing.gif)
